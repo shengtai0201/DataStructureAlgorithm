@@ -1,0 +1,1 @@
+void sortInteger(int *, int);
