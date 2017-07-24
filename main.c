@@ -1,10 +1,16 @@
 #include <stdio.h>
+#include <conio.h>
 #include "dynamic_array.h"
 #include "queue.h"
 #include "stack.h"
 #include "sort_array.h"
 #include "gcd.h"
 #include "pointer_function.h"
+#include "queue2.h"
+#include "queue_enviroment.h"
+#include "string_operation.h"
+#include "test_sort.h"
+#include "overload_method.h"
 
 // 堆疊 stack
 void test_stack() {
@@ -87,13 +93,44 @@ void test_pointer() {
     }
 }
 
+// 模擬 queue
+void test_queue_enviroment() {
+    init_queue();
+
+    int op;
+    while (1) {
+        if (kbhit()) {
+            op = getch();
+            if (op == 'p')
+                producer();
+            else if (op == 'c')
+                consumer();
+            else
+                break;
+        }
+    }
+}
+
+// 測試方法指標
+void test_function(){
+   int (*pf)(int, int);
+    pf = addInteger;
+
+    int result = pf(1,2);
+}
+
 int main() {
 //    test_stack();
 //    test_queue();
 //    test_array();
 //    test_sort();
 //    test_gcd();
-    test_pointer();
+//    test_pointer();
+//    test_queue_enviroment();
+//    pointer_string();
+
+    // 測試氣泡排序法
+    test_sort2();
 
     return 0;
 }

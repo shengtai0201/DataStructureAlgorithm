@@ -1,0 +1,3 @@
+void producer();
+
+void consumer();
