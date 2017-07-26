@@ -11,6 +11,9 @@
 #include "string_operation.h"
 #include "test_sort.h"
 #include "overload_method.h"
+#include "test_union.h"
+#include "test_my_search.h"
+#include "test_file.h"
 
 // 堆疊 stack
 void test_stack() {
@@ -112,11 +115,11 @@ void test_queue_enviroment() {
 }
 
 // 測試方法指標
-void test_function(){
-   int (*pf)(int, int);
+void test_function() {
+    int (*pf)(int, int);
     pf = addInteger;
 
-    int result = pf(1,2);
+    int result = pf(1, 2);
 }
 
 int main() {
@@ -130,7 +133,10 @@ int main() {
 //    pointer_string();
 
     // 測試氣泡排序法
-    test_sort2();
+//    test_sort2();
+//    test_union();
+//    test_binary_search();
+    test_file();
 
     return 0;
 }
