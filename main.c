@@ -14,6 +14,8 @@
 #include "test_union.h"
 #include "test_my_search.h"
 #include "test_file.h"
+#include "linked_list.h"
+#include "my_array.h"
 
 // 堆疊 stack
 void test_stack() {
@@ -122,6 +124,75 @@ void test_function() {
     int result = pf(1, 2);
 }
 
+void test_linked_list_add() {
+    Node *head = NULL;
+
+    int i;
+    for (i = 0; i < 10; i++)
+        head = add_node(head, i * 10);
+
+    display_node(head);
+}
+
+void test_linked_list_insert() {
+    Node *head = NULL;
+
+    int i;
+    for (i = 1; i < 10; i++)
+        head = add_node(head, i * 10);
+
+    display_node(head);
+    head = insert_node(head, 100);
+    display_node(head);
+}
+
+void test_linked_list_delete() {
+    Node *head = NULL;
+
+    int i;
+    for (i = 0; i < 10; i++)
+        head = add_node(head, i * 10);
+
+    display_node(head);
+    head = delete_node(head, 90);
+    display_node(head);
+}
+
+void test_normal_array() {
+    int a[20];
+    int i, size;
+
+    size = 10;
+    for (i = 0; i < size; i++)
+        a[i] = i * 10;
+    print_array(a, size);
+
+    if (array_insert(a, size, 55) > -1)
+        size++;
+    print_array(a, size);
+
+    array_delete(a, size, 40);
+    print_array(a, size);
+}
+
+void test_linked_list_queue() {
+    Node *head = NULL;
+
+    head = linked_list_enqueue(head, 10);
+    head = linked_list_enqueue(head, 20);
+    head = linked_list_enqueue(head, 30);
+    head = linked_list_enqueue(head, 40);
+    display_node(head);
+
+    head = linked_list_dequeue(head, &value);
+    printf("value = %d \n", value);
+    head = linked_list_dequeue(head, &value);
+    printf("value = %d \n", value);
+    head = linked_list_enqueue(head, 50);
+    head = linked_list_enqueue(head, 60);
+    display_node(head);
+}
+
 int main() {
 //    test_stack();
 //    test_queue();
@@ -136,7 +207,11 @@ int main() {
 //    test_sort2();
 //    test_union();
 //    test_binary_search();
-    test_file();
+//    test_file();
+//    test_linked_list_add();
+//    test_linked_list_insert();
+//    test_linked_list_delete();
+//    test_normal_array();
 
     return 0;
 }
